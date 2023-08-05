@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='design.css') }}">
+        <style>
+            body {
+                background-image: linear-gradient(to right top,#D91B23,#124FEB);
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0; 
+            }
+            button {
+                height: 45px;
+                background-color: red;
+                color: #fff;
+                width: 90px;
+                border-radius: 8px;
+                margin-left: 95px;       
+            }
+        </style>
+    </head>
+    <div class="container"> 
+        <h1 style="margin-left:10px; font-size:20px; color:white;">Thank you for downloading!!</h1>
+        <a href="{{ url_for('index') }}"><button id="repeat">Download again</button></a>
+    </div>
+    <script>
+        document.getElementById('repeat').addEventListener('click',function(){
+            window.location.href='/index.html';
+        })
+    </script>
+</html>

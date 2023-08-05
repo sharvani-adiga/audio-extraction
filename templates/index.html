@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='design.css') }}">
+    </head>
+    <div class="container"> 
+        <h1 style="margin-left:10px; font-size:20px; color:white;">Enter URL :</h1>
+        <div class="search"> 
+            <div class="row">         
+                <div class="col-md-6"> 
+                    <div>
+                        <div class="search-2">
+                            <i class='bx bxs-map' ></i> 
+                            <input type="text" id="urlip" placeholder="URL"> 
+                            <button id="downloadbtn">Download</button> 
+                        </div> 
+                    </div>
+                </div> 
+            </div> 
+        </div>
+    </div>
+    <script>
+        const urlip=document.getElementById('urlip');
+        const downloadbtn=document.getElementById('downloadbtn');
+
+        downloadbtn.addEventListener('click',()=>{      
+            const youtubeUrl=urlip.value;
+            fetch('/download',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({ url: youtubeUrl })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if(data.message.includes('Error')){
+                    urlip.value = "";
+                    window.location.href = "/error.html";
+                }
+                else{
+                    urlip.value="";
+                    window.location.href="/done.html"
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                window.location.href="/error.html"
+            });
+        });
+    </script>
+</html>
