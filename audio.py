@@ -23,7 +23,7 @@ def download_audio():
         ytb=YouTube(url)   
         title=ytb.title 
         audio=ytb.streams.filter(only_audio=True).first()        
-        audio.download(output_path='/Users/sharvaniadiga/Music/Downloaded',filename=title+'.mp3')
+        audio.download(output_path='/Users/sharvaniadiga/Music/Downloaded',filename=title+'.mp3')       #change the output_path to the desired path.
         message = f"Download of '{title}' successful!"
     except Exception as e:
         message = f"Error occurred: {e}"
