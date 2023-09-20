@@ -12,7 +12,7 @@ This project allows users to extract audio from YouTube videos by providing the 
 - **Feedback to User:** The user is provided with a message indicating whether the download was successful or if any errors occurred during the process.
 
 ## Project Structure
-- `app.py`: Flask back-end implementation
+- `audio.py`: Flask back-end implementation
 - `templates/`
   - `index.html`: Front-end HTML file for user input
   - `done.html`: Front-end HTML file for successful download
